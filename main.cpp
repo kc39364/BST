@@ -135,6 +135,9 @@ int main() {
 
     print(bst3.postOrderTraversal());
     cout << endl;
+    bst3.insertItem(6);
+    print(bst3.postOrderTraversal());
+    cout << endl;
     bst3.makeEmpty();
     print(bst3.postOrderTraversal());
     cout << endl;
