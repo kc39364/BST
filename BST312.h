@@ -249,10 +249,10 @@ void BST_312 <ItemType>::deleteItem(const ItemType& newItem)
 template<class ItemType>
 void BST_312 <ItemType>::makeEmpty(TreeNode*& t)
 {
-    if(t->left != NULL)
-        makeEmpty(t->left);
-    if(t->right != NULL)
-        makeEmpty(t->right);
+    if(t == NULL)
+        return;
+    makeEmpty(t->left);
+    makeEmpty(t->right);
     deleteNode(t);
 }
 
@@ -322,18 +322,10 @@ void BST_312 <ItemType>::insertItem(const ItemType& newItem)
 template<class ItemType>
 int BST_312 <ItemType>::countNodes(TreeNode* t) const
 {
-    int nodes = 0;
-
     if(t == NULL)
-        return nodes;
-    nodes++;
-
-    if(t->left != NULL)
-        nodes += countNodes(t->left);
-    if(t->right != NULL)
-        nodes += countNodes(t->right);
-    
-    return nodes;
+        return 0;
+    else
+        return 1 + countNodes(t->left) + countNodes(t->right);
 }
 
 
